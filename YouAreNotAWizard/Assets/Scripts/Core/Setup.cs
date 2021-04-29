@@ -26,7 +26,7 @@ public class Setup : MonoBehaviour
             fps = frameCount / dt ;
             frameCount = 0;
             dt -= 1.0f/updateRate;
-            // Debug.Log((int)fps + " fps");
+            Debug.Log((int)fps + " fps");
         }
         
         
