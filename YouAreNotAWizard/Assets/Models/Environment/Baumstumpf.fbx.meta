@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 918f324640200904ba08b50010c3caf7
+guid: 4613768ba70764c4581c9d4f909bcbc7
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Holz
-    second: {fileID: 2100000, guid: 3150f3098f7b3a04fbdbebf2e1d233e8, type: 2}
+      name: "Holz_au\xDFen"
+    second: {fileID: 2100000, guid: 6bef3abd68f599344ae28811a10563a5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Leaves
-    second: {fileID: 2100000, guid: d1701828c6a3c6f42b66d2a0453c9868, type: 2}
+      name: Holz_innen
+    second: {fileID: 2100000, guid: a71fd4dbec9c0da4685fefcaa39d563d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

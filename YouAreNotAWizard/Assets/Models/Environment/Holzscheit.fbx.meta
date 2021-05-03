@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 918f324640200904ba08b50010c3caf7
+guid: 09a6c473d0b2d6249be908f0158735c4
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Holz
-    second: {fileID: 2100000, guid: 3150f3098f7b3a04fbdbebf2e1d233e8, type: 2}
+    second: {fileID: 2100000, guid: 326eb91ac4b42514d898a5a0cdbce735, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Leaves
-    second: {fileID: 2100000, guid: d1701828c6a3c6f42b66d2a0453c9868, type: 2}
+      name: Rinde
+    second: {fileID: 2100000, guid: 7d4e1a99a4d61d042b41f96c9e7b8b84, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
