@@ -18,24 +18,36 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            HitBox();
-        }
+        HitBox();
     }
     void HitBox()
     {
-        
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        Vector3 direction = Vector3.up.normalized;
+        Quaternion directionAngle = Quaternion.LookRotation(direction); ;
         if (Physics.Raycast(ray, out hit))
         {
-            clone.DestroyHitBox();
-            Debug.Log("Yes");
-            Vector3 direction = (hit.point - transform.position).normalized;
-            Quaternion directionAngle = Quaternion.LookRotation(direction);
+            direction = (hit.point - transform.position).normalized;
+            directionAngle = Quaternion.LookRotation(direction);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log("Yes");   
+            clone = Instantiate(realOne, transform.GetChild(0).position + direction*2, directionAngle);
+        }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            direction = (hit.point - transform.position).normalized;
+            directionAngle = Quaternion.LookRotation(direction);
+            clone.transform.position = transform.GetChild(0).position + direction*2;
+            clone.transform.rotation = directionAngle;
 
-            clone = Instantiate(realOne, transform.GetChild(0).position + direction / 2, directionAngle);
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            clone.DestroyHitBox();
         }
         
 
