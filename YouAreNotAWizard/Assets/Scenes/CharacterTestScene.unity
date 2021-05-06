@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 681060721}
   direction: {x: 50, y: -50, z: 0}
-  offset: {x: 20, y: 20, z: -10}
+  offset: {x: 20, y: 25, z: -10}
 --- !u!114 &1313290460
 MonoBehaviour:
   m_ObjectHideFlags: 0
