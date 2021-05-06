@@ -12,7 +12,6 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        clone = Instantiate(realOne, -Vector3.up * 200, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -25,7 +24,7 @@ public class PlayerScript : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Vector3 direction = Vector3.up.normalized;
-        Quaternion directionAngle = Quaternion.LookRotation(direction); ;
+        Quaternion directionAngle = Quaternion.LookRotation(direction);
         if (Physics.Raycast(ray, out hit))
         {
             direction = (hit.point - transform.position).normalized;
@@ -39,18 +38,15 @@ public class PlayerScript : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            direction = (hit.point - transform.position).normalized;
+            //direction = (hit.point - transform.position).normalized;
+            direction = new Vector3(direction.x, 0.0f, direction.z);
+            clone.transform.position = transform.GetChild(0).position + direction * clone.transform.localScale.z;
             directionAngle = Quaternion.LookRotation(direction);
-            clone.transform.position = transform.GetChild(0).position + direction*2;
             clone.transform.rotation = directionAngle;
-
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             clone.DestroyHitBox();
         }
-        
-
-
     }
 }
