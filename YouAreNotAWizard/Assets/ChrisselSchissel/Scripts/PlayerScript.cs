@@ -10,6 +10,10 @@ public class PlayerScript : MonoBehaviour
     public DetectionScript realOne;
     private DetectionScript clone;
     public VisualEffect flamespell;
+    [SerializeField]
+    private float maxDistance = 1000f;
+    [SerializeField]
+    private LayerMask layerMask;
 
     void Start()
     {
@@ -29,24 +33,35 @@ public class PlayerScript : MonoBehaviour
         RaycastHit hit;
         Vector3 direction = Vector3.up.normalized;
         Quaternion directionAngle = Quaternion.LookRotation(direction);
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
         {
-            direction = (hit.point - transform.position).normalized;
+            //Richtungsvektor
+            direction = (hit.point - transform.position);
+            direction = new Vector3(direction.x, 0.0f, direction.z);
+            while (direction.magnitude < 1.3f)
+            {
+                direction *= 5f;
+            }
+            direction = direction.normalized;
+            //Richtung der Attacke als Winkel
             directionAngle = Quaternion.LookRotation(direction);
+            //direction = directionAngle.normalized * new Vector3(1.0f, 1.0f, 1.0f) + direction;
+            //direction = direction.normalized;
         }
         
+        //Instanzieren dem Hitbox-Collider und starten der VFX-Attacke
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Debug.Log("Yes");   
-            clone = Instantiate(realOne, transform.GetChild(0).position + direction*2, directionAngle);
+            Debug.Log("Yes");
+            //realOne = Hitbox-Objekt, als Start-Position die Position des Charakters und 
+            clone = Instantiate(realOne, transform.GetChild(0).position + direction * 2, directionAngle);
             flamespell.Play();
-
+            //+direction * 2
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            //direction = (hit.point - transform.position).normalized;
-            direction = new Vector3(direction.x, 0.0f, direction.z);
-            clone.transform.position = transform.GetChild(0).position + direction * 0.6f * clone.transform.localScale.z;
+            //direction = new Vector3(direction.x, 0.0f, direction.z);
+            clone.transform.position = transform.GetChild(0).position + direction * clone.transform.localScale.z * 0.6f;
             flamespell.transform.position = transform.GetChild(0).position + direction * 2;
             directionAngle = Quaternion.LookRotation(direction);
             clone.transform.rotation = directionAngle;
