@@ -244,13 +244,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8df21a97dd0bd42b522453e9e820d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shockRealOne: {fileID: 4170682348516879150, guid: 4c532beb0a25851428dfef30c8fd3f9b, type: 3}
   hitBox: {fileID: 8795153875895772571, guid: 4c532beb0a25851428dfef30c8fd3f9b, type: 3}
-  realOne: {fileID: 4170682348516879150, guid: 4c532beb0a25851428dfef30c8fd3f9b, type: 3}
+  fireRealOne: {fileID: 3738190030396139987, guid: 77dd7a88075bb64449ee3dcc25004c44, type: 3}
+  fireHitBox: {fileID: 736197521900226991, guid: 77dd7a88075bb64449ee3dcc25004c44, type: 3}
   flamespell: {fileID: 817074100}
   maxDistance: 1000
   layerMask:
     serializedVersion: 2
     m_Bits: 131072
+  flameSpawnTimer: 0.05
 --- !u!143 &681060724
 CharacterController:
   m_ObjectHideFlags: 0
@@ -641,7 +644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6622569858059990180, guid: 75401db0aeefd5a42867fb2faf11641e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3922863
+      value: 13.63
       objectReference: {fileID: 0}
     - target: {fileID: 6622569858059990180, guid: 75401db0aeefd5a42867fb2faf11641e, type: 3}
       propertyPath: m_LocalPosition.y
