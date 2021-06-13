@@ -7,9 +7,10 @@ public class PlayerScript : MonoBehaviour
 {
     //Collision Detection
         //Shock
-    public DetectionScript shockRealOne;
-    private DetectionScript shockClone;
-    public GameObject hitBox;
+    public WaveAttackCollision waveRealOne;
+    private WaveAttackCollision waveClone;
+    [SerializeField]
+    private GameObject waveHitBox;
         //Fire
     public FireAttackCollision fireRealOne;
     private FireAttackCollision fireClone;
@@ -19,6 +20,7 @@ public class PlayerScript : MonoBehaviour
 
     //VisualEffects
     public VisualEffect flamespell;
+    public VisualEffect wavespell;
 
     //Raycast Variablen
     Camera cam; //Unsere Spielkamera
@@ -35,12 +37,15 @@ public class PlayerScript : MonoBehaviour
     {
         cam = Camera.main;
         flamespell.Stop();
+        wavespell.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
         FlameHitBox();
+        WaveHitBox();
+
     }
     
     
@@ -98,48 +103,46 @@ public class PlayerScript : MonoBehaviour
         
     }
 
-    void HitBox()
+    void WaveHitBox()
     {
-        //Get Raycast at a certain location
+        bool spawn = FlameHitBoxTimer();
+
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Vector3 direction = Vector3.up;
         Quaternion directionAngle = Quaternion.LookRotation(direction);
+
         if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
         {
             //Richtungsvektor
             direction = (hit.point - transform.position);
             //Für das Normalisieren ist es wichtig, dass nur x und z Achse beachtet wird
             direction = new Vector3(direction.x, 0.0f, direction.z);
-
+            //direction wird normalisiert
             direction = direction.normalized;
             //Richtung der Attacke als Winkel
             directionAngle = Quaternion.LookRotation(direction);
-
         }
-
-        //Instanzieren dem Hitbox-Collider und starten der VFX-Attacke
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            Debug.Log("Yes");
-            //realOne = Hitbox-Objekt, als Start-Position die Position des Charakters + Richtungvektor * 2, also als Länge 2
-            shockClone = Instantiate(shockRealOne, transform.GetChild(0).position + direction * 2, directionAngle);
-
             //VFX Attacke starten
-            flamespell.Play();
+            wavespell.Play();
+            waveClone = Instantiate(waveRealOne, transform.GetChild(0).position + direction * 2, directionAngle);
         }
-        else if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse1))
         {
-            shockClone.transform.position = transform.GetChild(0).position + direction * shockClone.transform.localScale.z * 0.6f;
-            flamespell.transform.position = transform.GetChild(0).position + direction * 2;
-            directionAngle = Quaternion.LookRotation(direction);
-            shockClone.transform.rotation = directionAngle;
-            flamespell.transform.rotation = directionAngle;
+            
+            wavespell.transform.position = transform.GetChild(0).position + direction * 2;
+            wavespell.transform.rotation = directionAngle;
+
+            waveClone.transform.rotation = directionAngle;
+            waveClone.transform.position = transform.GetChild(0).position + direction  * 0.6f * waveHitBox.transform.localScale.z;
+
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            shockClone.DestroyHitBox();
-            flamespell.Stop();
+            wavespell.Stop();
+            waveClone.DestroyWaveSpell();
         }
     }
 
