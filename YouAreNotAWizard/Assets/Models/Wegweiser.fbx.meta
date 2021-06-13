@@ -3,7 +3,22 @@ guid: 17f1cee40b5b1f345be87c2b3a5e7480
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "N\xE4gel"
+    second: {fileID: 2100000, guid: 6f19b8107bd377343bd3d3baeb3ee618, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wegweiser
+    second: {fileID: 2100000, guid: bcc28eb58b0aabc449414475ccbc1643, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wegweiser_schild
+    second: {fileID: 2100000, guid: 0d8e35e9906dd7d4ebe0e6025801e1ca, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
