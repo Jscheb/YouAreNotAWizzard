@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: 4089703432643683656
     second: Armature|TascheAction
+  - first:
+      74: 6503710843971187167
+    second: Armature|Run (1)
   externalObjects:
   - first:
       type: UnityEngine:Material
