@@ -497,6 +497,76 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &169659423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169659421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ef9ff375650904ea37d0aa4e43c27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &169659424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169659421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8df21a97dd0bd42b522453e9e820d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveRealOne: {fileID: 0}
+  waveHitBox: {fileID: 0}
+  fireRealOne: {fileID: 0}
+  fireHitBox: {fileID: 0}
+  flamespell: {fileID: 0}
+  wavespell: {fileID: 0}
+  maxDistance: 1000
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  flameSpawnTimer: 0
+--- !u!114 &169659425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169659421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41baebd9e93d264bbad7bbc5287e5ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 169659427}
+  movementSpeed: 9
+  turnSpeed: 0
+  turnSmoothTime: 0
+  cam: {fileID: 1282632941}
+--- !u!143 &169659427
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169659421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.7
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.79, z: 0}
 --- !u!1 &206347751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,6 +1597,7 @@ GameObject:
   - component: {fileID: 1282632940}
   - component: {fileID: 1282632939}
   - component: {fileID: 1282632942}
+  - component: {fileID: 1282632943}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1566,7 +1637,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 50
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -1632,6 +1703,21 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1282632943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282632938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed85994b9843cc4bb9af8c836c2142e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 169659421}
+  direction: {x: 50, y: -50, z: 0}
+  offset: {x: 7.5, y: 10, z: -5}
 --- !u!1001 &1305505735
 PrefabInstance:
   m_ObjectHideFlags: 0
