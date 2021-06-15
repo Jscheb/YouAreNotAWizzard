@@ -1,26 +1,26 @@
 fileFormatVersion: 2
-guid: 6336c83359acd024caf979b4de4cf404
+guid: f4b37ad1f26e31642af446c5b05e999f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
+      74: -5789183029499613450
+    second: Hut|Idle
+  - first:
       74: -4449717305648701825
     second: Armature|0TPose
   - first:
-      74: -4496178651804226324
-    second: Armature|HutAction
-  - first:
-      74: -7551964380084998518
-    second: Armature|Run
-  - first:
-      74: 4089703432643683656
-    second: Armature|TascheAction
-  - first:
-      74: 6503710843971187167
-    second: Armature|Run (1)
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
   - first:
       74: -8945691123924629249
     second: Armature|Idle
+  - first:
+      74: -236022367644965580
+    second: Armature|Idle (1)
+  - first:
+      74: 6703348710115044748
+    second: Armature|Scared
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -50,11 +50,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Run (1)
-      takeName: Armature|Run
+      name: Armature|Scared
+      takeName: Armature|Scared
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -79,11 +79,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|HutAction
-      takeName: Armature|HutAction
+      name: Armature|0TPose
+      takeName: Armature|0TPose
       internalID: 0
       firstFrame: 0
-      lastFrame: 21
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -108,11 +108,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Run
-      takeName: Armature|Run
+      name: Armature|ArmatureAction
+      takeName: Armature|ArmatureAction
       internalID: 0
       firstFrame: 0
-      lastFrame: 22
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -137,11 +137,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|TascheAction
-      takeName: Armature|TascheAction
+      name: Armature|Idle
+      takeName: Armature|Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 21
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
