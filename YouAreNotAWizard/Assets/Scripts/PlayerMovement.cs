@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float turnSpeed;
     public float turnSmoothTime;
     public Transform cam;
-    private float playerGravity;
+    public float playerGravity;
 
     void Update()
     {
@@ -20,8 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyGravity()
     {
-        Vector3 gravityVector = Quaternion.Euler(0f, playerGravity, 0f) * Vector3.down;
-        controller.Move(gravityVector.normalized * Time.deltaTime);
+        // Vector3 gravityVector = Quaternion.Euler(0f, playerGravity, 0f) * Vector3.down;
+        // controller.Move(gravityVector * Time.deltaTime);
+        controller.Move(Vector3.down * playerGravity);
     }
     void MoveThePlayer()
     {

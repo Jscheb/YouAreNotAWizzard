@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2ae1b79f55482849bee8abfffa7a9e9
+guid: 9ba2577f5e5de0046acf0f7643595b0f
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,68 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: AugeGlanz
-    second: {fileID: 2100000, guid: 890a232d8dfe42a4b854ea9b86e1f2aa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Band
-    second: {fileID: 2100000, guid: 73041185e6b783d479167fecf80849b2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Band.001
-    second: {fileID: 2100000, guid: 1074dc0da6086f14082e77d85fff44a6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Bauch
-    second: {fileID: 2100000, guid: 5f8313bcc3373ae478cf1cc451d9b21c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Faden
-    second: {fileID: 2100000, guid: bd8d1db0e840b1a418bf764b0f62f0f0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Hut.001
-    second: {fileID: 2100000, guid: e54900c833c712c4f99e8f31314721dc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: a4aa1ab51f1647245a6248f3ef850a96, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 702e8a97e957db34f8e523ee2794a957, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.006
-    second: {fileID: 2100000, guid: 7f6defbf53b1e8e4eb4d6695156fb7bd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.007
-    second: {fileID: 2100000, guid: 962caed2e8344e84384f8d4956254584, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.009
-    second: {fileID: 2100000, guid: 31a3912386931634c898cea4edd37852, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tier
-    second: {fileID: 2100000, guid: ce7e2f467fc932046976518b19f6cd13, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Zahn
-    second: {fileID: 2100000, guid: 0c5ea9e82515c79419a52ffe70a14c41, type: 2}
+      name: Stein2
+    second: {fileID: 2100000, guid: 78ff1e59e02b2fc428a519ad587890a9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -101,7 +41,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
