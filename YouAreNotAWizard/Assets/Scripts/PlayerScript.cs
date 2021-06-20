@@ -25,7 +25,7 @@ public class PlayerScript : MonoBehaviour
     //Raycast Variablen
     Camera cam; //Unsere Spielkamera
     [SerializeField]
-    private float maxDistance = 1000f; //Raycastlänge
+    private float maxDistance = 1000f; //RaycastlÃ¤nge
     [SerializeField]
     private LayerMask layerMask; //GroundLayer, damit nur RayCasts auf dem Boden gemacht werden
 
@@ -61,7 +61,7 @@ public class PlayerScript : MonoBehaviour
         {
             //Richtungsvektor
             direction = (hit.point - transform.position);
-            //Für das Normalisieren ist es wichtig, dass nur x und z Achse beachtet wird
+            //FÃ¼r das Normalisieren ist es wichtig, dass nur x und z Achse beachtet wird
             direction = new Vector3(direction.x, 0.0f, direction.z);
             //direction wird normalisiert
             direction = direction.normalized;
@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour
         {
             //Richtungsvektor
             direction = (hit.point - transform.position);
-            //Für das Normalisieren ist es wichtig, dass nur x und z Achse beachtet wird
+            //FÃ¼r das Normalisieren ist es wichtig, dass nur x und z Achse beachtet wird
             direction = new Vector3(direction.x, 0.0f, direction.z);
             //direction wird normalisiert
             direction = direction.normalized;
