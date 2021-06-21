@@ -86,8 +86,10 @@ public class EnemyAi : MonoBehaviour
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
+        Vector3 lookAtTarget = new Vector3(player.position.x, transform.position.y, player.position.z);
+        //transform.LookAt(player);
+        transform.LookAt(lookAtTarget);
 
-        transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
