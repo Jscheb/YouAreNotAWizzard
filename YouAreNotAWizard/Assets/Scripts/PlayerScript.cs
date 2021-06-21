@@ -17,6 +17,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private GameObject fireHitBox;
 
+    [SerializeField]
+    private float attackHeight = 0.8f;
+    
+
 
     //VisualEffects
     public VisualEffect flamespell;
@@ -43,6 +47,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         FlameHitBox();
         WaveHitBox();
 
@@ -76,10 +81,10 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0)){
             if (FlameHitBoxTimer())
             {
-                fireClone = Instantiate(fireRealOne, transform.GetChild(0).position + direction * 2, directionAngle);
+                fireClone = Instantiate(fireRealOne, transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction * 2, directionAngle);
                 fireClone.setMovementDirection(direction);
             }
-            flamespell.transform.position = transform.GetChild(0).position + direction * 2;
+            flamespell.transform.position = transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction * 2;
             flamespell.transform.rotation = directionAngle;
         }
         else if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -105,8 +110,6 @@ public class PlayerScript : MonoBehaviour
 
     void WaveHitBox()
     {
-        bool spawn = FlameHitBoxTimer();
-
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Vector3 direction = Vector3.up;
@@ -132,14 +135,13 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1))
         {
             
-            wavespell.transform.position = transform.GetChild(0).position + direction * 2;
+            wavespell.transform.position = transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f)  + direction * 2;
             wavespell.transform.rotation = directionAngle;
 
+            waveClone.transform.position = transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction  * 0.6f * waveHitBox.transform.localScale.z;
             waveClone.transform.rotation = directionAngle;
-            waveClone.transform.position = transform.GetChild(0).position + direction  * 0.6f * waveHitBox.transform.localScale.z;
-
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             wavespell.Stop();
             waveClone.DestroyWaveSpell();
