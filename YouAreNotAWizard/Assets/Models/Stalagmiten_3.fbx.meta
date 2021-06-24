@@ -3,7 +3,12 @@ guid: 20610095750d54c4da665ebc78a36b74
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stalagmit1
+    second: {fileID: 2100000, guid: 08729d894d752124cab4aa0f05211317, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
