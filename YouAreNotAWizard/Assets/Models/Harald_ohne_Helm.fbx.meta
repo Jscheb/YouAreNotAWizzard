@@ -1,20 +1,17 @@
 fileFormatVersion: 2
-guid: de7cb53337bae7d4c8336bb703511e7d
+guid: d7128ac11a549934b8df4061acce2fad
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -5324238279805231817
-    second: metarig|Idle
+      74: -4449717305648701825
+    second: Armature|0TPose
   - first:
-      74: -7408968806781539716
-    second: metarig|walk
+      74: -8945691123924629249
+    second: Armature|Idle
   - first:
-      74: -2685226963602940903
-    second: metarig|walk (1)
-  - first:
-      74: 1021806162419773930
-    second: metarig|Attack
+      74: -236022367644965580
+    second: Armature|Idle (1)
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -44,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: metarig|Attack
-      takeName: metarig|Attack
+      name: Armature|Idle (1)
+      takeName: Armature|Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 36
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -73,11 +70,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: metarig|walk
-      takeName: metarig|walk
+      name: Armature|Idle
+      takeName: Armature|Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 27
+      lastFrame: 39
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
