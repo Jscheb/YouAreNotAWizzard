@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class OnTriggerDialogue : MonoBehaviour
 {
-    private DialogueManager dia;
-    void Start()
-    {
-        dia = new DialogueManager();
-    }
+
 
     private void OnTriggerEnter(Collider other)
     {

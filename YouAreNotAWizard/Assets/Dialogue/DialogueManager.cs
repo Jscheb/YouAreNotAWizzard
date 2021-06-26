@@ -2,37 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
 
-    public Text nameText;
-    public Text dialogueText;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
     public RawImage charleft;
     public RawImage charright;
 
 
     public Animator animator;
 
+    private Queue<string> names;
     private Queue<Texture> picturesLeft;
     private Queue<Texture> picturesRight;
     private Queue<string> sentences;
 
     void Start()
     {
+        names = new Queue<string>();
         sentences = new Queue<string>();
         picturesLeft = new Queue<Texture>();
         picturesRight = new Queue<Texture>();
+        animator.SetBool("IsOpen", false);
     }
     public void StartDialogue(Dialogue dialogue)
     {
 
         animator.SetBool("IsOpen", true);
-        nameText.text = dialogue.name;
 
         sentences.Clear();
-
-        foreach(string sentence in dialogue.sentences)
+        foreach (string name in dialogue.names)
+        {
+            names.Enqueue(name);
+        }
+        foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -54,7 +60,8 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-
+        string name = names.Dequeue();
+        nameText.text = name;
         string sentence = sentences.Dequeue();
         dialogueText.text = sentence;
 
