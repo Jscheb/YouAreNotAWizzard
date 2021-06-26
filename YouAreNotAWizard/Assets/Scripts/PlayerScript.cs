@@ -11,11 +11,14 @@ public class PlayerScript : MonoBehaviour
     private WaveAttackCollision waveClone;
     [SerializeField]
     private GameObject waveHitBox;
+    private bool waveUse = false;
+
         //Fire
     public FireAttackCollision fireRealOne;
     private FireAttackCollision fireClone;
     [SerializeField]
     private GameObject fireHitBox;
+    private bool fireUse = false;
 
     [SerializeField]
     private float attackHeight = 0.8f;
@@ -47,9 +50,27 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Mouse0) && !waveUse)
+        {
+            FlameHitBox();
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse0) && fireUse)
+        {
+            FlameHitBox();
+            fireUse = false;
+        }
+        else if (Input.GetKey(KeyCode.Mouse1) && !fireUse)
+        {
+            WaveHitBox();
+        }
+        else if (Input.GetKeyUp(KeyCode.Mouse1) && waveUse)
+        {
+            WaveHitBox();
+            waveUse = false;
+        }
 
-        FlameHitBox();
-        WaveHitBox();
+        
+
 
     }
     
@@ -77,11 +98,14 @@ public class PlayerScript : MonoBehaviour
         {         
             //VFX Attacke starten
             flamespell.Play();
+            fireUse = true;
         }
         if (Input.GetKey(KeyCode.Mouse0)){
             if (FlameHitBoxTimer())
             {
+                //fireClone = Instantiate(fireRealOne, transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction * 2, directionAngle);
                 fireClone = Instantiate(fireRealOne, transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction * 2, directionAngle);
+
                 fireClone.setMovementDirection(direction);
             }
             flamespell.transform.position = transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction * 2;
@@ -115,6 +139,8 @@ public class PlayerScript : MonoBehaviour
         Vector3 direction = Vector3.up;
         Quaternion directionAngle = Quaternion.LookRotation(direction);
 
+        Vector3 transWeapon = GameObject.Find("/Player/Weapon").transform.position;
+
         if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
         {
             //Richtungsvektor
@@ -129,16 +155,17 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             //VFX Attacke starten
+            waveClone = Instantiate(waveRealOne, transWeapon + direction * 0.6f * waveHitBox.transform.localScale.z, directionAngle);
+            waveUse = true;
             wavespell.Play();
-            waveClone = Instantiate(waveRealOne, transform.GetChild(0).position + direction * 2, directionAngle);
         }
-        if (Input.GetKey(KeyCode.Mouse1))
+        else if (Input.GetKey(KeyCode.Mouse1))
         {
             
-            wavespell.transform.position = transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f)  + direction * 2;
+            wavespell.transform.position = transWeapon + new Vector3(0.0f, attackHeight, 0.0f)  + direction * 2;
             wavespell.transform.rotation = directionAngle;
 
-            waveClone.transform.position = transform.GetChild(0).position + new Vector3(0.0f, attackHeight, 0.0f) + direction  * 0.6f * waveHitBox.transform.localScale.z;
+            waveClone.transform.position = transWeapon + new Vector3(0.0f, attackHeight, 0.0f) + direction * 0.6f * waveHitBox.transform.localScale.z;
             waveClone.transform.rotation = directionAngle;
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
