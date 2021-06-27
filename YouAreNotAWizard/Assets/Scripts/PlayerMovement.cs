@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 moveDirection;
+    public Vector3 moveDir;
     public CharacterController controller;
     public float movementSpeed;
     public float turnSpeed;
@@ -34,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSpeed, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            Vector3 moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
+            moveDir = Quaternion.Euler(0f, angle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * (movementSpeed * Time.deltaTime));
         }
     }
