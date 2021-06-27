@@ -993,6 +993,8 @@ MonoBehaviour:
   fireRealOne: {fileID: 3738190030396139987, guid: 77dd7a88075bb64449ee3dcc25004c44, type: 3}
   fireHitBox: {fileID: 736197521900226991, guid: 77dd7a88075bb64449ee3dcc25004c44, type: 3}
   attackHeight: 0.8
+  mana: 100
+  manaPerSecond: 5
   flamespell: {fileID: 1945738869}
   wavespell: {fileID: 371622113}
   maxDistance: 1000

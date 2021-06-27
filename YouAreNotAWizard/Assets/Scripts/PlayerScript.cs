@@ -22,6 +22,10 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private float attackHeight = 0.8f;
+
+    public float mana = 100f;
+    public float manaPerSecond = 5f;
+    private bool manaAvailable = true;
     
 
 
@@ -50,31 +54,63 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && !waveUse)
+        if (manaAvailable)
         {
-            FlameHitBox();
+            if (Input.GetKey(KeyCode.Mouse0) && !waveUse)
+            {
+                FlameHitBox();
+            }
+            else if (Input.GetKeyUp(KeyCode.Mouse0) && fireUse)
+            {
+                FlameHitBox();
+                fireUse = false;
+            }
+            else if (Input.GetKey(KeyCode.Mouse1) && !fireUse)
+            {
+                WaveHitBox();
+            }
+            else if (Input.GetKeyUp(KeyCode.Mouse1) && waveUse)
+            {
+                WaveHitBox();
+                waveUse = false;
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse0) && fireUse)
+        else
         {
-            FlameHitBox();
             fireUse = false;
-        }
-        else if (Input.GetKey(KeyCode.Mouse1) && !fireUse)
-        {
-            WaveHitBox();
-        }
-        else if (Input.GetKeyUp(KeyCode.Mouse1) && waveUse)
-        {
-            WaveHitBox();
             waveUse = false;
+            flamespell.Stop();
+            wavespell.Stop();
+            if(waveClone != null)
+            {
+                waveClone.DestroyWaveSpell();
+            }
+            
         }
+        
 
         
 
 
     }
-    
-    
+    void FixedUpdate()
+    {
+        if(waveUse || fireUse)
+        {
+            mana -= manaPerSecond;
+            if(mana <= 0)
+            {
+                manaAvailable = false;
+            }
+        }
+        else
+        {
+            mana += (manaPerSecond / 0.8f);
+            manaAvailable = true;
+        }
+    }
+
+
     void FlameHitBox()
     {
         bool spawn = FlameHitBoxTimer();
