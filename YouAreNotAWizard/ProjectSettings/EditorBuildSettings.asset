@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wald.unity
     guid: 6e36e16a52511ac49bd0556edf59b668
+  - enabled: 1
+    path: "Assets/Scenes/H\xF6hle.unity"
+    guid: 213b869537b4e064aa3e3bc70db47d60
   m_configObjects: {}
