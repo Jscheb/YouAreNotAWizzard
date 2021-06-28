@@ -14,6 +14,8 @@ public class EnemyAi : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
+    public Animator animator;
+
 
     //Patrolling
     public Vector3 walkPoint;
@@ -93,15 +95,13 @@ public class EnemyAi : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            //flamespell.Play();
-
-            
-
+            /*
             Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            
+            */
+
+            attack();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -121,8 +121,11 @@ public class EnemyAi : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
-   
-      
+
+    void attack()
+    {
+
+    }
 
    
     
