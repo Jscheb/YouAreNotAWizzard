@@ -8,6 +8,8 @@ public class EscMenu : MonoBehaviour
     int level = 0;
     public static bool GameIsPaused = false;
     public GameObject escMenuUI;
+    public GameObject settingsMenuUI;
+
 
     void Update()
     {
@@ -56,6 +58,8 @@ public class EscMenu : MonoBehaviour
     public void Resume()
     {
         escMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(false);
+
         Time.timeScale = 1f;
         GameIsPaused = false;
 
