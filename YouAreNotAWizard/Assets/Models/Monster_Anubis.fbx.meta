@@ -9,6 +9,9 @@ ModelImporter:
   - first:
       74: 4063407372809837908
     second: Armature|StabAction
+  - first:
+      74: -7551964380084998518
+    second: Armature|Run
   externalObjects: {}
   materials:
     materialImportMode: 2
