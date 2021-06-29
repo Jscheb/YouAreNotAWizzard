@@ -7,14 +7,14 @@ ModelImporter:
       74: 4723146814002874508
     second: Armature|Attack
   - first:
-      74: 4063407372809837908
-    second: Armature|StabAction
+      74: -8945691123924629249
+    second: Armature|Idle
   - first:
-      74: -7551964380084998518
-    second: Armature|Run
+      74: 786504323170427181
+    second: Armature|T-Pose
   - first:
-      74: -4449717305648701825
-    second: Armature|0TPose
+      74: 8349542763059015795
+    second: Armature|Walk
   externalObjects: {}
   materials:
     materialImportMode: 2
