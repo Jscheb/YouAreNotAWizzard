@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSpan: 0.5
-  flameDamage: 5
+  flameDamage: 3

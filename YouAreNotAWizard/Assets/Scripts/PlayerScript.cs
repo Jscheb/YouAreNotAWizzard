@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     private float attackHeight = 0.8f;
 
     public float mana = 100f;
-    public float manaPerSecond = 5f;
+    public float manaPerSecond = 2.0f;
     private bool manaAvailable = true;
     
 
@@ -103,10 +103,14 @@ public class PlayerScript : MonoBehaviour
                 manaAvailable = false;
             }
         }
-        else
+        else if (mana <= 100)
         {
-            mana += (manaPerSecond / 0.8f);
-            manaAvailable = true;
+            mana += (manaPerSecond * 0.6f);
+            if(mana > 20.0f)
+            {
+                manaAvailable = true;
+            }
+            
         }
     }
 

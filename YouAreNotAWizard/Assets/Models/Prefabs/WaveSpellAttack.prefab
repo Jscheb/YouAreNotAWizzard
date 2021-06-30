@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d21a3ee2a21e94a93fa675f92ab31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveDamage: 5
+  waveDamage: 12
   damageTimer: 0.3
