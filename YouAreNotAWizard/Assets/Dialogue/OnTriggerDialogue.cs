@@ -19,6 +19,10 @@ public class OnTriggerDialogue : MonoBehaviour
             gameObject.GetComponent<BoxCollider>().enabled = false;
             gameObject.GetComponent<BoxCollider>().isTrigger = false;
             GetComponent<DialogueTrigger>().TriggerDialogue();
+            GetComponent<MeshRenderer>().enabled = false;
         }
+
+
+        
     }
 }

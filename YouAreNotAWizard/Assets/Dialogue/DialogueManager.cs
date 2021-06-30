@@ -35,6 +35,8 @@ public class DialogueManager : MonoBehaviour
     {
 
         animator.SetBool("IsOpen", true);
+        
+
 
         sentences.Clear();
         foreach (string name in dialogue.names)
@@ -58,7 +60,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -73,10 +76,20 @@ public class DialogueManager : MonoBehaviour
         Texture right = picturesRight.Dequeue();
         charright.texture = right;
     }
+
+    public void freezeTime()
+    {
+        if(Time.timeScale > 0.5f)
+        {
+            Time.timeScale = 0f;
+        }
+        
+    }
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
         dialogueEnded = true;
+        Time.timeScale = 1f;
     }
 
 

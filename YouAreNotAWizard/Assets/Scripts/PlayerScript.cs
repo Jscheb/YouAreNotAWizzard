@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -23,10 +24,21 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private float attackHeight = 0.8f;
 
+    //#####-Mana-######
     public float mana = 100f;
     public float manaPerSecond = 2.0f;
     private bool manaAvailable = true;
-    
+
+    //#####-Life-######
+    public int life = 100;
+    public int lifePerSecond = 1;
+    bool notFullLife = false;
+
+
+    //#####-Slider-######
+    public Slider manaSlider;
+    public Slider lifeSlider;
+
 
 
     //VisualEffects
@@ -51,9 +63,38 @@ public class PlayerScript : MonoBehaviour
         wavespell.Stop();
     }
 
+    void manaBar()
+    {
+        int manaInt = (int)mana;
+        manaSlider.value = manaInt;
+    }
+    void lifeBar()
+    {
+        lifeSlider.value = life;
+    }
+    void TakeDamage(int damage)
+    {
+        life -= damage;
+        notFullLife = true;
+    }
+
+    void regenerate()
+    {
+        if(life < 100)
+        {
+            life += lifePerSecond;
+        }
+        else
+        {
+            notFullLife = false;
+        }
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
+        
         if (manaAvailable)
         {
             if (Input.GetKey(KeyCode.Mouse0) && !waveUse)
@@ -74,6 +115,7 @@ public class PlayerScript : MonoBehaviour
                 WaveHitBox();
                 waveUse = false;
             }
+            
         }
         else
         {
@@ -89,10 +131,14 @@ public class PlayerScript : MonoBehaviour
         }
         
 
-        
+        manaBar();
+        lifeBar();
 
 
     }
+
+
+
     void FixedUpdate()
     {
         if(waveUse || fireUse)
@@ -110,7 +156,10 @@ public class PlayerScript : MonoBehaviour
             {
                 manaAvailable = true;
             }
-            
+        }
+        if (notFullLife)
+        {
+            regenerate();
         }
     }
 
