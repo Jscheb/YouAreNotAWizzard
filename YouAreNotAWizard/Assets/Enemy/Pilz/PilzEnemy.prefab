@@ -15,8 +15,10 @@ GameObject:
   - component: {fileID: 7066308029828906272}
   - component: {fileID: 7066308029828906273}
   - component: {fileID: 7066308029828906302}
+  - component: {fileID: -413799799503120721}
+  - component: {fileID: 2495104924262858142}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: PilzEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -162,27 +164,38 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  animator: {fileID: 7066308029045215735}
+  animator: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 120
   timeBetweenAttacks: 0.5
   projectile: {fileID: 0}
-  flamespell: {fileID: 0}
-  sightRange: 20
+  sightRange: 25
   attackRange: 0.9
   playerInSightRange: 1
   playerInAttackRange: 1
---- !u!95 &7066308029045215735
+--- !u!114 &-413799799503120721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2904160596400874413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d445dcab218381249b773d96f205253b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2495104924262858142
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985436735612048232}
+  m_GameObject: {fileID: 2904160596400874413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f6a91f58f13ef11458b7a1332b3f0995, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -248,11 +261,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de7cb53337bae7d4c8336bb703511e7d, type: 3}
---- !u!1 &7985436735612048232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: de7cb53337bae7d4c8336bb703511e7d, type: 3}
-  m_PrefabInstance: {fileID: 7066308030082575929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7321208999141083602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: de7cb53337bae7d4c8336bb703511e7d, type: 3}

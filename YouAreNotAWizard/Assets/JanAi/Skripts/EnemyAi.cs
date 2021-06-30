@@ -24,8 +24,8 @@ public class EnemyAi : MonoBehaviour
 
     //Attack
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
-    public GameObject projectile;
+    public bool alreadyAttacked;
+    //public GameObject projectile;
 
 
     //States
