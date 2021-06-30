@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PilzAnimationController : MonoBehaviour
+public class FeuerdracheAnimationController : MonoBehaviour
 {
     private Animator animator;
 
@@ -11,14 +11,13 @@ public class PilzAnimationController : MonoBehaviour
     private int arHash;
 
     EnemyAi AiScript;
-    //GameObject PilzEnemy;
     // Start is called before the first frame update
     void Start()
     {
         // PilzEnemy = GameObject.Find("PilzEnemy");
         AiScript = transform.parent.gameObject.GetComponent<EnemyAi>();
         //AiScript = GetComponent<EnemyAi>();
-        
+
         animator = GetComponent<Animator>();
         isDead = Animator.StringToHash("IsDead");
         arHash = Animator.StringToHash("AttackRange");

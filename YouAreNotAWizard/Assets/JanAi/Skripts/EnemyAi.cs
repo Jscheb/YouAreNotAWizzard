@@ -14,12 +14,11 @@ public class EnemyAi : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public Animator animator;
-
     public int damage;
 
     PlayerScript PlayerScript;
 
+    public bool isDead = false;
 
     //Patrolling
     public Vector3 spawnPoint;
@@ -57,6 +56,14 @@ public class EnemyAi : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
 
+
+    }
+
+    IEnumerator AttackAmimation()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        yield return null;
+        Attack();
 
     }
 
@@ -101,17 +108,16 @@ public class EnemyAi : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            /*
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            */
+            StartCoroutine(AttackAmimation());
 
-            Attack();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
+        } 
+       
+
+        
+
     }
 
     private void ResetAttack()
@@ -130,7 +136,15 @@ public class EnemyAi : MonoBehaviour
 
     public void Attack()
     {
-        PlayerScript.TakeDamage(damage);
+        int playerLife = PlayerScript.GetLife();
+        if (playerLife > 0)
+        {
+            PlayerScript.TakeDamage(damage);
+        } else
+        {
+            isDead = true;
+            
+        }
     }
 
 

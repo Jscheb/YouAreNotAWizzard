@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -34,6 +35,12 @@ public class PlayerScript : MonoBehaviour
     public int lifePerSecond = 1;
     bool notFullLife = false;
     int lifeRegCounter = 0;
+
+
+    //#####-Death-######
+    public GameObject Canvas1;
+    public GameObject Canvas2;
+    float deathTimer = 0f;
 
     //#####-Slider-######
     public Slider manaSlider;
@@ -77,6 +84,32 @@ public class PlayerScript : MonoBehaviour
         life -= damage;
         notFullLife = true;
     }
+
+
+    public int GetLife()
+    {
+        return life;
+    }
+
+    public void CheckDeath()
+    {
+        
+        if (life <= 0)
+        {
+            Canvas1.SetActive(false);
+            Canvas2.SetActive(false);
+            deathTimer += Time.deltaTime;
+            int seconds = (int)deathTimer % 60;
+            if (seconds >= 5)
+            {
+                SceneManager.LoadScene(PlayerPrefs.GetInt("Level"));
+              
+            }
+            Time.timeScale = 1f;
+            
+        }
+    }
+
 
     void regenerate()
     {
@@ -133,7 +166,7 @@ public class PlayerScript : MonoBehaviour
 
         manaBar();
         lifeBar();
-
+        CheckDeath();
 
     }
 
