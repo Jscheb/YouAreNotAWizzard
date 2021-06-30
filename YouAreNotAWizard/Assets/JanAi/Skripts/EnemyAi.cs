@@ -26,8 +26,6 @@ public class EnemyAi : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
-    //VisualEffects
-    public VisualEffect flamespell;
 
 
     //States
@@ -42,7 +40,6 @@ public class EnemyAi : MonoBehaviour
 
     private void Update()
     {
-        flamespell.Stop();
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -50,7 +47,6 @@ public class EnemyAi : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange) AttackPlayer();
-        flamespell.Stop();
 
 
     }

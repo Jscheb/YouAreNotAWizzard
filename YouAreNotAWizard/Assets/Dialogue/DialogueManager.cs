@@ -20,6 +20,9 @@ public class DialogueManager : MonoBehaviour
     private Queue<Texture> picturesRight;
     private Queue<string> sentences;
 
+
+    public bool dialogueEnded = false;
+
     void Start()
     {
         names = new Queue<string>();
@@ -73,6 +76,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        dialogueEnded = true;
     }
 
 
