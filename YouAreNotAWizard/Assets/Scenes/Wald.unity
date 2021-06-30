@@ -4431,13 +4431,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7066308029828906273, guid: c51c09236b33f984d85a615328a63cec, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7066308029828906302, guid: c51c09236b33f984d85a615328a63cec, type: 3}
       propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7066308029828906302, guid: c51c09236b33f984d85a615328a63cec, type: 3}
+      propertyPath: sightRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066308029828906302, guid: c51c09236b33f984d85a615328a63cec, type: 3}
       propertyPath: attackRange
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7066308029828906302, guid: c51c09236b33f984d85a615328a63cec, type: 3}
+      propertyPath: walkPointRange
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7651834259565133961, guid: c51c09236b33f984d85a615328a63cec, type: 3}
       propertyPath: m_Size.x

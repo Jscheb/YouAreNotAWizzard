@@ -16,13 +16,13 @@ public class EnemyAi : MonoBehaviour
 
     public Animator animator;
 
-    
-
     public int damage;
+
     PlayerScript PlayerScript;
 
 
     //Patrolling
+    public Vector3 spawnPoint;
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
@@ -39,6 +39,7 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
+        spawnPoint = transform.position;
         GameObject Enemyplayer = GameObject.Find("Player");
 
         PlayerScript = Enemyplayer.GetComponent<PlayerScript>();
@@ -78,10 +79,11 @@ public class EnemyAi : MonoBehaviour
         float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
         float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPoint = new Vector3(spawnPoint.x + randomX, transform.position.y, spawnPoint.z + randomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+
 
     }
 
@@ -114,7 +116,7 @@ public class EnemyAi : MonoBehaviour
 
     private void ResetAttack()
     {
-        alreadyAttacked = false;    
+        alreadyAttacked = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -131,10 +133,9 @@ public class EnemyAi : MonoBehaviour
         PlayerScript.TakeDamage(damage);
     }
 
-   
-    
 
 
- 
+
+
+
 }
-
