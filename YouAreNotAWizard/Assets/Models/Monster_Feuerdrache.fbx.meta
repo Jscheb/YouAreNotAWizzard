@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: 6503710843971187167
     second: Armature|Run (1)
+  - first:
+      74: -2312591172714006727
+    second: Armature|Besiegt
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -44,11 +47,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Attack
-      takeName: Armature|Attack
+      name: Armature|Besiegt
+      takeName: Armature|Besiegt
       internalID: 0
       firstFrame: 0
-      lastFrame: 22
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

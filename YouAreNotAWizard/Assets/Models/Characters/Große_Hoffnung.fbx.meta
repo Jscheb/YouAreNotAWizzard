@@ -21,6 +21,9 @@ ModelImporter:
   - first:
       74: -8945691123924629249
     second: Armature|Idle
+  - first:
+      74: 8378342289326978880
+    second: Armature|Besigt
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -105,11 +108,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Run (1)
-      takeName: Armature|Run
+      name: Armature|Besigt
+      takeName: Armature|Besigt
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
