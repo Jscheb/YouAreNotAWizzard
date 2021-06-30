@@ -17,13 +17,13 @@ public class PlayerAudioScript : MonoBehaviour
         while(1 == 1)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-            if (moveDirection.magnitude >= 0.1f && !source.isPlaying)
+            if (moveDirection.magnitude >= 1.0f && !source.isPlaying)
             {
                 source.Play();
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.3f);
                 continue;
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
 
         }
 
