@@ -7,7 +7,6 @@ public class PilzAnimationController : MonoBehaviour
     private Animator animator;
 
     //Performance boost
-    private int aaHash;
     private int arHash;
     EnemyAi AiScript;
     //GameObject PilzEnemy;
@@ -28,7 +27,6 @@ public class PilzAnimationController : MonoBehaviour
     void Update()
     {
         animator.SetBool(arHash, AiScript.playerInAttackRange);
-        animator.SetBool(aaHash, AiScript.alreadyAttacked);
 
     }
 }

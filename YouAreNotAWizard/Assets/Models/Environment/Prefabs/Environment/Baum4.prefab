@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7936965772084389997}
   - component: {fileID: 5314585216492690599}
   - component: {fileID: 6773597154795864097}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Baum4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

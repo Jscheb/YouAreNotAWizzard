@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
     public int life = 100;
     public int lifePerSecond = 1;
     bool notFullLife = false;
-
+    int lifeRegCounter = 0;
 
     //#####-Slider-######
     public Slider manaSlider;
@@ -72,7 +72,7 @@ public class PlayerScript : MonoBehaviour
     {
         lifeSlider.value = life;
     }
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         life -= damage;
         notFullLife = true;
@@ -159,7 +159,13 @@ public class PlayerScript : MonoBehaviour
         }
         if (notFullLife)
         {
-            regenerate();
+            lifeRegCounter++;
+            if(lifeRegCounter%25 == 0)
+            {
+                regenerate();
+                lifeRegCounter = 0;
+            }
+
         }
     }
 

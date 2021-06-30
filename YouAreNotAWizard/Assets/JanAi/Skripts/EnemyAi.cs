@@ -16,6 +16,11 @@ public class EnemyAi : MonoBehaviour
 
     public Animator animator;
 
+    
+
+    public int damage;
+    PlayerScript PlayerScript;
+
 
     //Patrolling
     public Vector3 walkPoint;
@@ -34,6 +39,9 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
+        GameObject Enemyplayer = GameObject.Find("Player");
+
+        PlayerScript = Enemyplayer.GetComponent<PlayerScript>();
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -97,7 +105,7 @@ public class EnemyAi : MonoBehaviour
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
             */
 
-            attack();
+            Attack();
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -118,9 +126,9 @@ public class EnemyAi : MonoBehaviour
     }
 
 
-    void attack()
+    public void Attack()
     {
-
+        PlayerScript.TakeDamage(damage);
     }
 
    
