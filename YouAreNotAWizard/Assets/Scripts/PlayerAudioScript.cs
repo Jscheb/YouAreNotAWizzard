@@ -6,10 +6,14 @@ public class PlayerAudioScript : MonoBehaviour
 {
     [SerializeField]
     private AudioSource source;
+    [SerializeField]
+    private AudioSource dashSound;
+    [SerializeField]
+    private AudioSource fireSound;
 
 
     // Update is called once per frame
-    
+
     IEnumerator Start()
     {
         source = GetComponent<AudioSource>();
@@ -29,4 +33,29 @@ public class PlayerAudioScript : MonoBehaviour
 
 
     }
+    public void playDashSound()
+    {
+        if (!dashSound.isPlaying){
+            dashSound.Play();
+        }
+        
+    }
+    public void PlayFireSound()
+    {
+        if (!fireSound.isPlaying)
+        {
+            fireSound.Play();
+        }
+
+    }
+    public void StopFireSound()
+    {
+        if (fireSound.isPlaying)
+        {
+            fireSound.Stop();
+        }
+
+    }
+
 }
+
