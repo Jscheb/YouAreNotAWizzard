@@ -41,6 +41,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject Canvas1;
     public GameObject Canvas2;
     float deathTimer = 0f;
+    public bool isDead = false;
 
     //#####-Slider-######
     public Slider manaSlider;
@@ -100,6 +101,7 @@ public class PlayerScript : MonoBehaviour
         
         if (life <= 0)
         {
+            isDead = true;
             Canvas1.SetActive(false);
             Canvas2.SetActive(false);
             deathTimer += Time.deltaTime;

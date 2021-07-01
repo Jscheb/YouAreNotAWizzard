@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  enemyIsDead: 0
 --- !u!195 &1022829469221269986
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -197,6 +198,8 @@ MonoBehaviour:
     m_Bits: 64
   damage: 10
   isDead: 0
+  enemyDead: 0
+  enemy: {fileID: 1022829469221269987}
   spawnPoint: {x: 0, y: 0, z: 0}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5

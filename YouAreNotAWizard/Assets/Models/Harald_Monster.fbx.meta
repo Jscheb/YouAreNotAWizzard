@@ -47,11 +47,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Run (1)
-      takeName: Armature|Run
+      name: Armature|0TPose
+      takeName: Armature|0TPose
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 4
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

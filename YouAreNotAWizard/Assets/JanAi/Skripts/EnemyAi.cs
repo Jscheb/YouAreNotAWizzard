@@ -18,7 +18,11 @@ public class EnemyAi : MonoBehaviour
 
     PlayerScript PlayerScript;
 
+
     public bool isDead = false;
+
+    public bool enemyDead;
+    public Enemy enemy;
 
     //Patrolling
     public Vector3 spawnPoint;
@@ -38,10 +42,15 @@ public class EnemyAi : MonoBehaviour
 
     private void Awake()
     {
+        enemy = gameObject.GetComponent<Enemy>();
+
         spawnPoint = transform.position;
         GameObject Enemyplayer = GameObject.Find("Player");
 
+
         PlayerScript = Enemyplayer.GetComponent<PlayerScript>();
+
+
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -51,11 +60,12 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-
-        if (!playerInSightRange && !playerInAttackRange) Patrolling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
-
+        if (enemy.GetEnemyIsDead() != true)
+        {
+            if (!playerInSightRange && !playerInAttackRange) Patrolling();
+            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        }
 
     }
 
@@ -146,10 +156,5 @@ public class EnemyAi : MonoBehaviour
             
         }
     }
-
-
-
-
-
 
 }
