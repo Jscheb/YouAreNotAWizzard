@@ -292,9 +292,12 @@ public class PlayerScript : MonoBehaviour
             
             wavespell.transform.position = transWeapon + new Vector3(0.0f, attackHeight, 0.0f)  + direction * 2;
             wavespell.transform.rotation = directionAngle;
-
-            waveClone.transform.position = transWeapon + new Vector3(0.0f, attackHeight, 0.0f) + direction * 0.6f * waveHitBox.transform.localScale.z;
-            waveClone.transform.rotation = directionAngle;
+            if(waveClone != null)
+            {
+                waveClone.transform.position = transWeapon + new Vector3(0.0f, attackHeight, 0.0f) + direction * 0.6f * waveHitBox.transform.localScale.z;
+                waveClone.transform.rotation = directionAngle;
+            }
+            
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
