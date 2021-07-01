@@ -29,10 +29,12 @@ public class PlayerDash : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             dashActive = false;
+            GetComponent<PlayerAudioScript>().playDashSound();
             StartCoroutine(Dash());
         }
 
     }
+
 
     private void DashTimer()
     {

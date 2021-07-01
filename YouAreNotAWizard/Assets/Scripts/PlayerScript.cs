@@ -46,6 +46,9 @@ public class PlayerScript : MonoBehaviour
     public Slider manaSlider;
     public Slider lifeSlider;
 
+    //#####-AudioManager-######
+    private PlayerAudioScript audioManager;
+
 
 
     //VisualEffects
@@ -65,6 +68,7 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        audioManager = GetComponent<PlayerAudioScript>();
         cam = Camera.main;
         flamespell.Stop();
         wavespell.Stop();
@@ -130,13 +134,16 @@ public class PlayerScript : MonoBehaviour
         
         if (manaAvailable)
         {
-            if (Input.GetKey(KeyCode.Mouse0) && !waveUse)
+            if (Input.GetKey(KeyCode.Mouse0) && !waveUse && Time.timeScale > 0.5f)
             {
                 FlameHitBox();
+                audioManager.PlayFireSound();
+
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0) && fireUse)
             {
                 FlameHitBox();
+                audioManager.StopFireSound();
                 fireUse = false;
             }
             else if (Input.GetKey(KeyCode.Mouse1) && !fireUse)
@@ -146,12 +153,18 @@ public class PlayerScript : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.Mouse1) && waveUse)
             {
                 WaveHitBox();
+                
                 waveUse = false;
+            }
+            if (!fireUse)
+            {
+                audioManager.StopFireSound();
             }
             
         }
         else
         {
+            audioManager.StopFireSound();
             fireUse = false;
             waveUse = false;
             flamespell.Stop();
