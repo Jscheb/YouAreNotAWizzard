@@ -148,7 +148,7 @@ public class PlayerScript : MonoBehaviour
                 audioManager.StopFireSound();
                 fireUse = false;
             }
-            else if (Input.GetKey(KeyCode.Mouse1) && !fireUse)
+            else if (Input.GetKey(KeyCode.Mouse1) && !fireUse && Time.timeScale > 0.5f)
             {
                 WaveHitBox();
             }

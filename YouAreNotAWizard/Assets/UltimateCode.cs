@@ -24,6 +24,7 @@ public class UltimateCode : MonoBehaviour
             manager.dialogueEnded = false;
             if (trigger1.isTriggered)
             {
+                trigger1.isTriggered = false;
                 spawn1.createEnemy();
             }
         }

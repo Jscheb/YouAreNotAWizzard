@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d21a3ee2a21e94a93fa675f92ab31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveDamage: 12
+  waveDamage: 24
   damageTimer: 0.3
 --- !u!82 &5895081791570064951
 AudioSource:
@@ -120,7 +120,7 @@ AudioSource:
   m_GameObject: {fileID: 2667688011038662651}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6313813725322687186, guid: 4964de1f3c630e044b56e6cd6fb2c0d5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 29f4c3d907de2d84fb274e1535c13a12, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.663

@@ -35,10 +35,16 @@ public class DialogueManager : MonoBehaviour
     {
 
         animator.SetBool("IsOpen", true);
-        
+        dialogueEnded = false;
+
 
 
         sentences.Clear();
+        names.Clear();
+        picturesLeft.Clear();
+        picturesRight.Clear();
+
+
         foreach (string name in dialogue.names)
         {
             names.Enqueue(name);
@@ -81,7 +87,7 @@ public class DialogueManager : MonoBehaviour
     {
         if(Time.timeScale > 0.5f)
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0.1f;
         }
         
     }
@@ -90,6 +96,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         dialogueEnded = true;
         Time.timeScale = 1f;
+        
     }
 
 
