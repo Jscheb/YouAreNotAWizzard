@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   enemyIsDead: 0
-  animationTimer: 4
+  animationTimer: 2
 --- !u!195 &1022829469221269986
 NavMeshAgent:
   m_ObjectHideFlags: 0

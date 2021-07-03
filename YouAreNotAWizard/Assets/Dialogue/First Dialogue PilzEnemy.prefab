@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   enemyIsDead: 0
-  animationTimer: 0
+  animationTimer: 2
 --- !u!114 &2435011945198144130
 MonoBehaviour:
   m_ObjectHideFlags: 0
