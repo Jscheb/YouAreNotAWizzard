@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.VFX;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
@@ -11,11 +12,14 @@ public class PlayerDash : MonoBehaviour
     public float dashBreakTime;
     private float currentTimer = 0f;
     private bool dashActive = true;
+    [SerializeField]
+    private VisualEffect dashEffect;
 
 
     void Start()
     {
         movementScript = GetComponent<PlayerMovement>();
+        dashEffect.Stop();
     }
 
     // Update is called once per frame
@@ -24,10 +28,12 @@ public class PlayerDash : MonoBehaviour
         if (!dashActive)
         {
             DashTimer();
+            
         }
         
         else if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            dashEffect.Play();
             dashActive = false;
             GetComponent<PlayerAudioScript>().playDashSound();
             StartCoroutine(Dash());
@@ -43,6 +49,8 @@ public class PlayerDash : MonoBehaviour
         {
             currentTimer = 0f;
             dashActive = true;
+            
+
         }
 
     }
@@ -56,5 +64,6 @@ public class PlayerDash : MonoBehaviour
 
             yield return null;
         }
+        dashEffect.Stop();
     }
 }

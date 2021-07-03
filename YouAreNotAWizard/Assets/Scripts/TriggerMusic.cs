@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class TriggerMusic : MonoBehaviour
 {
+    private AudioSource source;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<CharacterController>() != null)
         {
-            GameObject.Find("/Music").GetComponent<AudioSource>().Play(); ;
+            source = GameObject.Find("/Music").GetComponent<AudioSource>();
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
 
         }
 

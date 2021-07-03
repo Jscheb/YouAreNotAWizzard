@@ -8,6 +8,7 @@ public class OnTriggerDialogue : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<MeshRenderer>().enabled = false;
         trigger = GetComponent<DialogueTrigger>();
     }
 
