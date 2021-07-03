@@ -6,9 +6,15 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     int level = 0;
+    public GameObject mMenu;
+    public GameObject anleitung;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        mMenu.SetActive(false);
+        anleitung.SetActive(true);
+      //  if (Input.GetKeyDown(KeyCode.Mouse0)) {
+      //      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      //     }
     }
 
     public void LoadGame()
