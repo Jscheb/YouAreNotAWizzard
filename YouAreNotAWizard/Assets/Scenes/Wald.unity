@@ -616,7 +616,7 @@ MonoBehaviour:
     - WHAT ARE YOU DOING!?
     - I followed you and you are still not fighting!
     - Do not use fire. Experience it in the heat of a real battle!
-    - Look. If that is about me calling your biceps small you have to thicken your
+    - Look. If this is about me calling your biceps small you have to thicken your
       skin.
     - Fight like a warrior!
     - I am beginning to run out of patience with your lowclass combat.
@@ -3960,7 +3960,7 @@ MonoBehaviour:
     - Harald
     - Harald
     sentences:
-    - You just keep using those powers.
+    - You just keep using these powers.
     - I had enough of your disrepectful behaviour.
     - Over and over I told you and you would just not listen.
     - We will not see each other again, adventurer.
@@ -6005,6 +6005,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1139584158}
+  cursorTexture: {fileID: 2800000, guid: ada73a020a9ddae4d8cfc8d39591cc42, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!4 &1077823433
 Transform:
   m_ObjectHideFlags: 0

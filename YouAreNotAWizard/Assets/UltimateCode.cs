@@ -9,7 +9,15 @@ public class UltimateCode : MonoBehaviour
     [SerializeField]
     private DialogueManager manager;
 
-    // Start is called before the first frame update
+
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+
+    private void Awake()
+    {
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+    }
     void Start()
     {
         trigger1 = GameObject.Find("/01DialogueFirstContact").GetComponent<DialogueTrigger>();
