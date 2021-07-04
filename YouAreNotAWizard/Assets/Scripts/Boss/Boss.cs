@@ -36,7 +36,8 @@ public class Boss : Enemy
     public float timeBetweenAttacks;
     public bool alreadyAttacked = false;
     public float attackAnimationTimer;
-    
+    private float currentTimer;
+
     //freeze
     public float freezeTimer;
     public bool freezeAfterAttack = false;
@@ -98,6 +99,7 @@ public class Boss : Enemy
         {
             Debug.Log("Attacke");
             agent.SetDestination(transform.position);
+            ResetAcStates();
             SetAttack(true);
 
             StartCoroutine(AttackAnimation());
@@ -105,12 +107,23 @@ public class Boss : Enemy
 
             freezeAfterAttack = true;
             alreadyAttacked = true;
-            ResetAcStates();
-            SetIdle(true);
+            //ResetAcStates();
+            //SetIdle(true);
             StartCoroutine(ResetFreeze());
             StartCoroutine(ResetAttack());
         }
         
+    }
+    bool Timer()
+    {
+        if(currentTimer <= 0.0f)
+        {
+            currentTimer = attackAnimationTimer;
+            alreadyAttacked = true;
+        }
+
+
+        return false;
     }
 
 
@@ -171,6 +184,7 @@ public class Boss : Enemy
     {
         yield return new WaitForSecondsRealtime(attackAnimationTimer);
         yield return null;
+        SetAttack(false);
         Attack();
 
     }
@@ -188,8 +202,14 @@ public class Boss : Enemy
 
     IEnumerator ResetFreeze()
     {
+        
+        yield return new WaitForSecondsRealtime(2f);
+        yield return null;
+        ResetAcStates();
+        SetIdle(true);
         yield return new WaitForSecondsRealtime(freezeTimer);
         yield return null;
+        
         freezeAfterAttack = false;
     }
 
