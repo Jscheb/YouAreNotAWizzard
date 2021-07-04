@@ -87,6 +87,7 @@ public class PlayerScript : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        Debug.Log("jetzt");
         life -= damage;
         notFullLife = true;
     }
@@ -136,7 +137,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         
-        if (manaAvailable)
+        if (manaAvailable && !isDead)
         {
             if (Input.GetKey(KeyCode.Mouse0) && !waveUse && Time.timeScale > 0.5f)
             {
@@ -184,6 +185,7 @@ public class PlayerScript : MonoBehaviour
         manaBar();
         lifeBar();
         CheckDeath();
+        
 
     }
 

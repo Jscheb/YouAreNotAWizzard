@@ -9,12 +9,12 @@ public class HaraldAttackCollision : MonoBehaviour
 
     [SerializeField]
     private int doomDamage;
+
     //Die Richtung der Flammen
     Vector3 moveForward;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
