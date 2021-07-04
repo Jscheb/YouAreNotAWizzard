@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 
 public class Boss : Enemy
 {
-    public bool startTheFightAkaBob = true;
+    public bool startTheFightAkaBob = false;
     public int damage;
     PlayerScript PlayerScript;
     public bool enemyDead;

@@ -7,12 +7,15 @@ public class FinalFightStart : MonoBehaviour
     private AudioSource source;
     [SerializeField]
     private AudioSource finalMusic;
+    public Boss boss;
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CharacterController>() != null)
         {
+            boss.startTheFightAkaBob = true;
+
             source = GameObject.Find("/Music").GetComponent<AudioSource>();
             if (!source.isPlaying)
             {
