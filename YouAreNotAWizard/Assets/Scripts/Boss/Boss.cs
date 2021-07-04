@@ -36,7 +36,7 @@ public class Boss : Enemy
     public float timeBetweenAttacks;
     public bool alreadyAttacked = false;
     public float attackAnimationTimer;
-    private float currentTimer;
+    
 
     //freeze
     public float freezeTimer;
@@ -93,6 +93,23 @@ public class Boss : Enemy
             }
         }
     }
+
+    public void Attack()
+    {
+        int playerLife = PlayerScript.GetLife();
+        if (playerLife > 0)
+        {
+            GetComponent<HaraldAttack>().attack = true;
+        }
+        else
+        {
+            SetIdle(true);
+            startTheFightAkaBob = false;
+        }
+    }
+
+
+
     private void AttackPlayer()
     {
         if (!alreadyAttacked)
@@ -114,18 +131,6 @@ public class Boss : Enemy
         }
         
     }
-    bool Timer()
-    {
-        if(currentTimer <= 0.0f)
-        {
-            currentTimer = attackAnimationTimer;
-            alreadyAttacked = true;
-        }
-
-
-        return false;
-    }
-
 
 
 
@@ -136,8 +141,6 @@ public class Boss : Enemy
         if (freezeAfterAttack || !startTheFightAkaBob) SetIdle(true);
         //if ( ) SetRun();
     }
-
-    
 
     private void SetDie(bool x)
     {
@@ -150,9 +153,6 @@ public class Boss : Enemy
     {
         attack = x;
         animator.SetBool(attackAC, attack);
-        Debug.Log("attack true");
-
-
     }
 
     private void SetIdle(bool x)
@@ -163,7 +163,6 @@ public class Boss : Enemy
 
 
     }
-
 
     private void SetRun(bool x)
     {
@@ -176,10 +175,6 @@ public class Boss : Enemy
     }
 
 
-    
-
-
-
     IEnumerator AttackAnimation()
     {
         yield return new WaitForSecondsRealtime(attackAnimationTimer);
@@ -188,7 +183,6 @@ public class Boss : Enemy
         Attack();
 
     }
-
 
 
     private void ChasePlayer()
@@ -221,21 +215,7 @@ public class Boss : Enemy
     }
 
 
-    public void Attack()
-    {
-        int playerLife = PlayerScript.GetLife();
-        if (playerLife > 0)
-        {
-            //Chris hier attacklogic pls
-            PlayerScript.TakeDamage(damage);
-            Debug.Log(playerLife);
-        }
-        else
-        {
-            SetIdle(true);
-            startTheFightAkaBob = false;
-        }
-    }
+    
     private void AnimatorStart()
     {
         animator = GetComponent<Animator>();

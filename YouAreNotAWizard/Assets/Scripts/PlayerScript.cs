@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
     public FireAttackCollision fireRealOne;
     private FireAttackCollision fireClone;
     [SerializeField]
-    private GameObject fireHitBox;
+    //private GameObject fireHitBox;
     private bool fireUse = false;
 
     [SerializeField]
