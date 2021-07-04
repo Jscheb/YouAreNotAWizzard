@@ -52,6 +52,11 @@ public class Boss : Enemy
     public bool run = false;
     public bool attack = false;
 
+    [SerializeField]
+    private AudioSource endAllMusic;
+    [SerializeField]
+    private AudioSource endDialogueMusic;
+
 
     private void Awake()
     {
@@ -92,6 +97,16 @@ public class Boss : Enemy
 
             }
         }
+    }
+
+    private void OnDeathJanPleaseCompleteThisWithKindRegardsYourBoyChristianHToTheBIG()
+    {
+        if (endAllMusic.isPlaying)
+        {
+            endAllMusic.Stop();
+        }
+        endDialogueMusic.Play();
+
     }
 
     public void Attack()
@@ -229,6 +244,8 @@ public class Boss : Enemy
         healthBar.value = health;
         if (health <= 0)
         {
+            GetComponent<DialogueTrigger>().TriggerDialogue();
+            OnDeathJanPleaseCompleteThisWithKindRegardsYourBoyChristianHToTheBIG();
             deleteHB();
         }
     }

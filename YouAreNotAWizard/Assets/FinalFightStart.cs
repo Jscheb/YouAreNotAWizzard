@@ -17,7 +17,7 @@ public class FinalFightStart : MonoBehaviour
             boss.startTheFightAkaBob = true;
 
             source = GameObject.Find("/Music").GetComponent<AudioSource>();
-            if (!source.isPlaying)
+            if (source.isPlaying)
             {
                 source.Stop();
             }
