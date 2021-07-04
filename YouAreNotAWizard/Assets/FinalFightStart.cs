@@ -8,6 +8,7 @@ public class FinalFightStart : MonoBehaviour
     [SerializeField]
     private AudioSource finalMusic;
     public Boss boss;
+    public GameObject haraldHB;
 
 
     private void OnTriggerEnter(Collider other)
@@ -15,7 +16,7 @@ public class FinalFightStart : MonoBehaviour
         if (other.GetComponent<CharacterController>() != null)
         {
             boss.startTheFightAkaBob = true;
-
+            haraldHB.SetActive(true);
             source = GameObject.Find("/Music").GetComponent<AudioSource>();
             if (source.isPlaying)
             {

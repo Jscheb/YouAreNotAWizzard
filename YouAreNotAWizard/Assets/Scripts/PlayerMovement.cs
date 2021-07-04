@@ -12,10 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public float turnSmoothTime;
     public Transform cam;
     public float playerGravity;
+    public PlayerScript playerScript;
 
     void Update()
     {
-        MoveThePlayer();
+        if (playerScript.isDead == false)
+            MoveThePlayer();
         ApplyGravity();
     }
 

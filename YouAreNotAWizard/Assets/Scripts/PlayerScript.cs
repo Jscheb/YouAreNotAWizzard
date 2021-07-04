@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+    public CharacterController CC;
     //Collision Detection
         //Shock
     public WaveAttackCollision waveRealOne;
@@ -102,6 +103,7 @@ public class PlayerScript : MonoBehaviour
         if (life <= 0)
         {
             isDead = true;
+            CC.enabled = false;
             Canvas1.SetActive(false);
             Canvas2.SetActive(false);
             deathTimer += Time.deltaTime;
@@ -119,7 +121,7 @@ public class PlayerScript : MonoBehaviour
 
     void regenerate()
     {
-        if(life < 100)
+        if(life < 100 && life >=1)
         {
             life += lifePerSecond;
         }

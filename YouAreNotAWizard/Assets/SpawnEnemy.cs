@@ -13,6 +13,7 @@ public class SpawnEnemy : MonoBehaviour
 
     [SerializeField]
     private GameObject enemy;
+    public GameObject wall;
 
 
 
@@ -24,6 +25,7 @@ public class SpawnEnemy : MonoBehaviour
 
     public void createEnemy()
     {
+        wall.SetActive(false);
         Instantiate(enemy, position, new Quaternion(0,0,0,0));
     }
 }

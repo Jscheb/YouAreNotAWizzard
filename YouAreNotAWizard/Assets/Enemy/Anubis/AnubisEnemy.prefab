@@ -86,11 +86,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4542506883571684380}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.34, y: 3.04, z: 1.3}
+  m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!54 &889470439616273624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   enemyIsDead: 0
-  deathAnimationTimer: 2
+  deathAnimationTimer: 1.62
 --- !u!114 &5063139931748307779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  damage: 35
+  damage: 34
   isDead: 0
   enemyDead: 0
   enemy: {fileID: 6714058853517576341}
@@ -173,7 +173,7 @@ MonoBehaviour:
   walkPointRange: 5
   timeBetweenAttacks: 1.65
   alreadyAttacked: 0
-  attackAnimationTimer: 0
+  attackAnimationTimer: 0.9
   sightRange: 20
   attackRange: 1
   playerInSightRange: 0
@@ -226,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4607cf9adb43874aad6f14406baed2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b4607cf9adb43874aad6f14406baed2c, type: 3}
       propertyPath: m_LocalPosition.z
