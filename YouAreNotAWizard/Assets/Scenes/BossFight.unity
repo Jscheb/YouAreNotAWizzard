@@ -2131,13 +2131,11 @@ MonoBehaviour:
   health: 100
   enemyIsDead: 0
   deathAnimationTimer: 2
-  startTheFightAkaBob: 0
+  startTheFightAkaBob: 1
   damage: 20
-  isDead: 0
   enemyDead: 0
   enemy: {fileID: 2130418802}
   spawnPoint: {x: 0, y: 0, z: 0}
-  startTimer: 5
   healthBar: {fileID: 1788262140}
   HaraldPic: {fileID: 541704728}
   UI: {fileID: 339739881}
@@ -2149,10 +2147,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  timeBetweenAttacks: 20
+  timeBetweenAttacks: 2
   alreadyAttacked: 0
-  attackAnimationTimer: 0
-  freezeTimer: 10
+  attackAnimationTimer: 5
+  freezeTimer: 4
   freezeAfterAttack: 0
   attackRange: 20
   playerInAttackRange: 0

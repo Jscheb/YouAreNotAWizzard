@@ -8,14 +8,12 @@ using UnityEngine.VFX;
 
 public class Boss : Enemy
 {
-    public bool startTheFightAkaBob = false;
+    public bool startTheFightAkaBob = true;
     public int damage;
     PlayerScript PlayerScript;
-    public bool isDead = false;
     public bool enemyDead;
     public Enemy enemy;
     public Vector3 spawnPoint;
-    public float startTimer = 5f;
 
     //animator
     private Animator animator;
@@ -72,98 +70,102 @@ public class Boss : Enemy
         AcStateCheck();
         if (startTheFightAkaBob)
         {
-            Invoke(nameof(ResetAttack), startTimer);
             if (!enemyIsDead)
             {
-                startTimer = 0f;
                 FacePlayer();
                 //if (!idle && !attack) 
-                ChasePlayer();
-               if (playerInAttackRange)
+                if (!playerInAttackRange && !freezeAfterAttack)
+                {
+                    ChasePlayer();
+                }else if (playerInAttackRange)
+                {
+                    //ResetAcStates();
                     AttackPlayer();
+                }
+                else
+                {
+                    ResetAcStates();
+                    SetIdle(true);
+                }
+                
+
             }
         }
-        ResetAcStates();
+    }
+    private void AttackPlayer()
+    {
+        if (!alreadyAttacked)
+        {
+            Debug.Log("Attacke");
+            agent.SetDestination(transform.position);
+            SetAttack(true);
+
+            StartCoroutine(AttackAnimation());
+            //Attack();
+
+            freezeAfterAttack = true;
+            alreadyAttacked = true;
+            ResetAcStates();
+            SetIdle(true);
+            StartCoroutine(ResetFreeze());
+            StartCoroutine(ResetAttack());
+        }
+        
     }
 
- 
-    private void AnimatorStart()
-    {
-        animator = GetComponent<Animator>();
-        dieAC = Animator.StringToHash("Die");
-        attackAC = Animator.StringToHash("Attack");
-        idleAC = Animator.StringToHash("Idle");
-        runAC = Animator.StringToHash("Run");
-    }
+
+
 
     private void AcStateCheck()
     {
         if (enemyIsDead) SetDie(true);
        // if ( ) SetAttack();
-        if (freezeAfterAttack | !startTheFightAkaBob) SetIdle(true);
+        if (freezeAfterAttack || !startTheFightAkaBob) SetIdle(true);
         //if ( ) SetRun();
     }
 
-    private void ResetAcStates()
-    {
-        die = false;
-        attack = false;
-        idle = false;
-        run = false;
-    }
-    private void HealthBarCheck()
-    {
-        healthBar.value = health;
-        if (health <= 0)
-        {
-            deleteHB();
-        }
-    }
-    private void PlayerInAttackRangeCheck()
-    {
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-    }
+    
+
     private void SetDie(bool x)
     {
         die = x;
-        if (die)
-        {
-            animator.SetBool(dieAC, die);
-            Debug.Log("die true");
-        }
+        animator.SetBool(dieAC, die);
+
     }
 
     private void SetAttack(bool x)
     {
         attack = x;
-        if (attack)
-        {
-            animator.SetBool(attackAC, attack);
-            Debug.Log("attack true");
-        }
+        animator.SetBool(attackAC, attack);
+        Debug.Log("attack true");
+
+
     }
 
     private void SetIdle(bool x)
     {
         idle = x;
-        if (idle)
-        {
+
             animator.SetBool(idleAC, idle);
-            Debug.Log("idle true");
-        }
+
+
     }
 
 
     private void SetRun(bool x)
     {
         run = x;
-        if (run)
-        {
+
             animator.SetBool(runAC, run);
 
-            Debug.Log("run true");
-        }
+
+
     }
+
+
+    
+
+
 
     IEnumerator AttackAnimation()
     {
@@ -174,49 +176,12 @@ public class Boss : Enemy
     }
 
 
-    
+
     private void ChasePlayer()
     {
         ResetAcStates();
         SetRun(true);
         agent.SetDestination(player.position);
-
-    }
-    private void FacePlayer()
-    {
-        agent.SetDestination(transform.position);
-        Vector3 lookAtTarget = new Vector3(player.position.x, transform.position.y, player.position.z);
-        transform.LookAt(lookAtTarget);
-    }
-
-
-    private void AttackPlayer()
-    {
-        
-        FacePlayer();
-
-        if (!alreadyAttacked)
-        {
-            
-            ResetAcStates();
-            SetAttack(true);
-
-            //StartCoroutine(AttackAnimation());
-            Attack();
-
-            freezeAfterAttack = true;
-            alreadyAttacked = true;
-            SetAttack(false);
-            SetIdle(true);
-            StartCoroutine(ResetFreeze());
-            StartCoroutine(ResetAttack());
-            //Invoke(nameof(ResetAttack), timeBetweenAttacks);
-            //Invoke(nameof(ResetFreeze), freezeTimer);
-            
-
-        }
-
-
 
 
     }
@@ -234,21 +199,6 @@ public class Boss : Enemy
         yield return null;
         alreadyAttacked = false;
     }
-   /* private void ResetFreeze()
-    {
-        freezeAfterAttack = false;
-        
-    }
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
-    }
-   */
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
 
 
     public void Attack()
@@ -262,14 +212,51 @@ public class Boss : Enemy
         }
         else
         {
-            isDead = true;
-            idle = true;
+            SetIdle(true);
+            startTheFightAkaBob = false;
         }
     }
-
+    private void AnimatorStart()
+    {
+        animator = GetComponent<Animator>();
+        dieAC = Animator.StringToHash("Die");
+        attackAC = Animator.StringToHash("Attack");
+        idleAC = Animator.StringToHash("Idle");
+        runAC = Animator.StringToHash("Run");
+    }
+    private void HealthBarCheck()
+    {
+        healthBar.value = health;
+        if (health <= 0)
+        {
+            deleteHB();
+        }
+    }
+    private void PlayerInAttackRangeCheck()
+    {
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+    }
+    private void FacePlayer()
+    {
+        agent.SetDestination(transform.position);
+        Vector3 lookAtTarget = new Vector3(player.position.x, transform.position.y, player.position.z);
+        transform.LookAt(lookAtTarget);
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
     private void deleteHB()
     {
         UI.SetActive(false); ;
+    }
+    private void ResetAcStates()
+    {
+        SetAttack(false);
+        SetDie(false);
+        SetIdle(false);
+        SetRun(false);
     }
 
 }
