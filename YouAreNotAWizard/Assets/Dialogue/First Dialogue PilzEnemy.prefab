@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   enemyIsDead: 0
-  animationTimer: 2
+  deathAnimationTimer: 1
 --- !u!114 &2435011945198144130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   walkPointRange: 5
   timeBetweenAttacks: 1.65
   alreadyAttacked: 0
+  attackAnimationTimer: 0
   sightRange: 15
   attackRange: 1
   playerInSightRange: 1

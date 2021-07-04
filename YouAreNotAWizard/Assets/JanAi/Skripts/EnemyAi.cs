@@ -34,6 +34,8 @@ public class EnemyAi : MonoBehaviour
     public float timeBetweenAttacks;
     public bool alreadyAttacked;
     //public GameObject projectile;
+    public float attackAnimationTimer;
+
 
 
 
@@ -44,6 +46,7 @@ public class EnemyAi : MonoBehaviour
     private void Awake()
     {
         enemy = gameObject.GetComponent<Enemy>();
+        enemyDead = enemy.GetEnemyIsDead();
 
         spawnPoint = transform.position;
         GameObject Enemyplayer = GameObject.Find("Player");
@@ -61,18 +64,16 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (enemy.GetEnemyIsDead() != true)
-        {
-            if (!playerInSightRange && !playerInAttackRange) Patrolling();
-            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-            if (playerInSightRange && playerInAttackRange) AttackPlayer();
-        }
+        if (!playerInSightRange && !playerInAttackRange && !enemyDead) Patrolling();
+        if (playerInSightRange && !playerInAttackRange && !enemyDead) ChasePlayer();
+        if (playerInSightRange && playerInAttackRange && !enemyDead) AttackPlayer();
+       
 
     }
 
     IEnumerator AttackAnimation()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(attackAnimationTimer);
         yield return null;
         Attack();
 
@@ -84,6 +85,7 @@ public class EnemyAi : MonoBehaviour
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);
+        
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
