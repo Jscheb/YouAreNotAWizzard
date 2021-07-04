@@ -36,6 +36,7 @@ public class EnemyAi : MonoBehaviour
     //public GameObject projectile;
 
 
+
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -69,7 +70,7 @@ public class EnemyAi : MonoBehaviour
 
     }
 
-    IEnumerator AttackAmimation()
+    IEnumerator AttackAnimation()
     {
         yield return new WaitForSecondsRealtime(1);
         yield return null;
@@ -118,18 +119,19 @@ public class EnemyAi : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            StartCoroutine(AttackAmimation());
-
+            StartCoroutine(AttackAnimation());
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        } 
-       
 
-        
+        }
+
+
+
+
+    
 
     }
-
     private void ResetAttack()
     {
         alreadyAttacked = false;
