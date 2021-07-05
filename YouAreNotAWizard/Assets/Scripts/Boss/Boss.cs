@@ -26,6 +26,8 @@ public class Boss : Enemy
     public Slider healthBar;
     public Image HaraldPic;
     public GameObject UI;
+    public GameObject UI2;
+
 
     //NavMesh
     public NavMeshAgent agent;
@@ -266,7 +268,9 @@ public class Boss : Enemy
     }
     private void deleteHB()
     {
-        UI.SetActive(false); ;
+        UI.SetActive(false);
+        UI2.SetActive(false);
+
     }
     private void ResetAcStates()
     {

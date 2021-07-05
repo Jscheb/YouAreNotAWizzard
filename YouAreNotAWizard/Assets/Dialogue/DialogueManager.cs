@@ -13,12 +13,14 @@ public class DialogueManager : MonoBehaviour
     public RawImage charright;
 
 
+
     public Animator animator;
 
     private Queue<string> names;
     private Queue<Texture> picturesLeft;
     private Queue<Texture> picturesRight;
     private Queue<string> sentences;
+   
 
 
     public bool dialogueEnded = false;
@@ -61,6 +63,7 @@ public class DialogueManager : MonoBehaviour
         {
             picturesRight.Enqueue(tex);
         }
+        
         DisplayNextSentence();
 
     }
@@ -81,6 +84,7 @@ public class DialogueManager : MonoBehaviour
         charleft.texture = left;
         Texture right = picturesRight.Dequeue();
         charright.texture = right;
+  
     }
 
     public void freezeTime()

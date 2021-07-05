@@ -13,4 +13,5 @@ public class Dialogue
     public Texture[] chararcterLeft;
     public Texture[] chararcterRight;
 
+
 }
