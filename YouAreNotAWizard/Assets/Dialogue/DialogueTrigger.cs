@@ -11,7 +11,10 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        abspann.SetActive(true);
+        if(abspann != null)
+        {
+            abspann.SetActive(true);
+        }
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 }

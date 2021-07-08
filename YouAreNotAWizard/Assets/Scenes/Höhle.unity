@@ -2983,15 +2983,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4166038382067042091, guid: 5e6a1c333ffaaf145b6d6a8255f75430, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 108.6
+      value: 105.62
       objectReference: {fileID: 0}
     - target: {fileID: 4166038382067042091, guid: 5e6a1c333ffaaf145b6d6a8255f75430, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.83
       objectReference: {fileID: 0}
     - target: {fileID: 4166038382067042091, guid: 5e6a1c333ffaaf145b6d6a8255f75430, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -26.3
+      value: -28.04
       objectReference: {fileID: 0}
     - target: {fileID: 4166038382067042091, guid: 5e6a1c333ffaaf145b6d6a8255f75430, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5656,6 +5656,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 947729722}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1330751772}
+        m_TargetAssemblyTypeName: Abspann, Assembly-CSharp
         m_MethodName: DisplayNextSentence
         m_Mode: 1
         m_Arguments:
@@ -10171,12 +10183,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac72eb5893a155b43b4b3674c16b1f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bilder:
+    abspannBilder:
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
+    - {fileID: 2800000, guid: 45f044ceab17dc34797df02a6d25e349, type: 3}
   A1: {fileID: 14629920}
   A2: {fileID: 513898082}
   A3: {fileID: 941178768}
   A4: {fileID: 1830268761}
   A5: {fileID: 186673020}
-  i: 0
   A: {fileID: 1330751767}
 --- !u!1001 &1348112522
 PrefabInstance:
