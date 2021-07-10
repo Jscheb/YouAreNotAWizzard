@@ -18,7 +18,27 @@ ModelImporter:
   - first:
       74: -2312591172714006727
     second: Armature|Besiegt
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drache_Armband
+    second: {fileID: 2100000, guid: f144b40bb55e0f74bab278496662d6fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drache_Auge
+    second: {fileID: 2100000, guid: b42446ab57653da4fa4e3fa0447c3e48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drache_Haut
+    second: {fileID: 2100000, guid: 710d95c4563ea034299025b58bb758d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drache_Stab
+    second: {fileID: 2100000, guid: 0b65a566f1c168a49b6aa15fc86f369c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

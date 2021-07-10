@@ -21,7 +21,32 @@ ModelImporter:
   - first:
       74: -8945691123924629249
     second: Armature|Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Augen
+    second: {fileID: 2100000, guid: ae8ba31f151363f49a76a8ca67fdac47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Augen2
+    second: {fileID: 2100000, guid: 3b3760d564540474f991796f59b61d0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Feuerdrache
+    second: {fileID: 2100000, guid: 6c8c3702b131a6a49a7e25e4d8503b77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Feuerdrache_Blatt
+    second: {fileID: 2100000, guid: dd717e2b9d812044caa4a687e126f5c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Feuerdrache_Flecken
+    second: {fileID: 2100000, guid: 28222ed3e2caa0c4db13f3581e8ed0a2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
